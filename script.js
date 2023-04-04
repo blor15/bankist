@@ -81,3 +81,16 @@ const displayMovements = movements => {
 };
 
 displayMovements(account1.movements);
+
+const createUsernames = accs => {
+  accs.forEach(acc => {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(name => name[0])
+      .join('');
+  });
+};
+
+createUsernames(accounts);
+console.log(accounts); //username should return the first letter of each name as a username for example "stw"
