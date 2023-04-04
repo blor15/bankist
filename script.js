@@ -91,6 +91,11 @@ const createUsernames = accs => {
       .join('');
   });
 };
+const calcDisplayBalance = movements => {
+  const balance = movements.reduce((acc, mov) => acc + mov, 0);
+  labelBalance.textContent = `${balance} EUR`;
+};
+calcDisplayBalance(account1.movements);
 
 createUsernames(accounts);
 console.log(accounts); //username should return the first letter of each name as a username for example "stw"
