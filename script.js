@@ -80,13 +80,10 @@ const displayMovements = movements => {
   });
 };
 
-displayMovements(account1.movements);
-
 const calcDisplayBalance = movements => {
   const balance = movements.reduce((acc, mov) => acc + mov, 0);
   labelBalance.textContent = `${balance}€`;
 };
-calcDisplayBalance(account1.movements);
 
 const calcDisplaySummary = movements => {
   const income = movements
@@ -109,7 +106,6 @@ const calcDisplaySummary = movements => {
     .reduce((acc, int) => acc + int, 0);
   labelSumInterest.textContent = `${interest}€`;
 };
-calcDisplaySummary(account1.movements);
 
 const createUsernames = accs => {
   accs.forEach(acc => {
@@ -145,9 +141,10 @@ btnLogin.addEventListener('click', e => {
     containerApp.style.opacity = 100;
 
     //Display movements
-
+    displayMovements(currentAccount.movements);
     //Display balance
-
+    calcDisplayBalance(currentAccount.movements);
     //Display summary
+    calcDisplaySummary(currentAccount.movements);
   }
 });
