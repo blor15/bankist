@@ -122,3 +122,32 @@ const createUsernames = accs => {
 };
 createUsernames(accounts);
 console.log(accounts); //username should return the first letter of each name as a username for example "stw"
+
+//Event Handler
+let currentAccount;
+
+btnLogin.addEventListener('click', e => {
+  //Prevent form from submitting
+  e.preventDefault();
+
+  currentAccount = accounts.find(
+    acc => acc.username === inputLoginUsername.value
+  );
+
+  if (currentAccount?.pin === Number(inputLoginPin.value)) {
+    console.log('LOGIN');
+  }
+  {
+    //Display UI and message
+    labelWelcome.textContent = `Welcome back, ${
+      currentAccount.owner.split(' ')[0]
+    }`;
+    containerApp.style.opacity = 100;
+
+    //Display movements
+
+    //Display balance
+
+    //Display summary
+  }
+});
